@@ -1,2 +1,2 @@
 # todo-nuxt3-app
-Nuxt3 Todo simple app
+Nuxt3 simple todo app
