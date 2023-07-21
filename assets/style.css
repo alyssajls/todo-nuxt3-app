@@ -76,7 +76,7 @@ body,html{
 }
 .task__card__action{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 }
 .task__card__action span{

@@ -12,6 +12,8 @@
                     <task-card/>
                 </div>
             </div>
+            <!-- 画面に表示試し -->
+            <!-- <div class="tasks">{{ store.status }}</div> -->
 
             <div class="complete__task">
                 <h3>Comleted Task</h3>
@@ -29,6 +31,7 @@
 </style>
 <script setup lang="ts">
 import {ref} from "vue";
+import { status, addTasks } from '../store/todoTask'
 
 const showDialog= ref(false);
 
