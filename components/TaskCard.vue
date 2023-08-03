@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import { Taskcard } from '~/utils/task'
 
 // Props & Emit
 const props = defineProps<{
-  taskcards: string[]
+  // taskcards: string[]
+  taskcard: Taskcard
 }>()
 
 </script>
@@ -15,11 +17,14 @@ const props = defineProps<{
         <span>Delete</span>
         <span>Complete</span>
       </div>
-      <p class="task_card_title">{{props.taskcards[0]}}</p>
-      <p class="text-light info-text">Created on: {{props.taskcards[2]}}</p>
+      <!-- {{props.taskcards[0]}} -->
+      <p class="task_card_title">{{props.taskcard.title}}</p>
+      <!-- {{props.taskcards[2]}} -->
+      <p class="text-light info-text">Created on: {{props.taskcard.date}}</p>
     </div>
     <div class="task__card__footer">
-        <p class="mt-1 text-light">{{props.taskcards[1]}}</p>
+      <!-- {{props.taskcards[1]}} -->
+        <p class="mt-1 text-light">{{props.taskcard.description}}</p>
         <div class="task__card__meta text-light info-text">
             <p>Expiring on: 23rd Dec 2023</p>
             <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar">

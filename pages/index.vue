@@ -13,7 +13,7 @@
                 </div> -->
                 <div v-for="(item,index) in showTodos" :key="index">
                     <task-card
-                    :taskcards="item"/>
+                    :taskcard="item"/>
                 </div>
             </div>
             
@@ -23,9 +23,9 @@
                     <task-card
                     :taskcards="taskcardinput"/>
                 </div> -->
-                <div v-for="(item,index) in showTodos" :key="index">
+                <div v-for="(item,index) in []" :key="index">
                     <task-card
-                    :taskcards="item"/>
+                    :taskcard="item"/>
                 </div>
             </div>
         </div>
@@ -36,6 +36,7 @@
 </template>
 
 <script setup lang="ts">
+import { Taskcard } from '../utils/task'
 import {ref} from "vue";
 
 const showDialog= ref(false);
@@ -45,15 +46,15 @@ function toggleDialog() {
 }
 
 // reactiveな配列 → 「ref('文字が書いていると')」:　変動不可能な固定値(以下、例)
-// const taskcardinput = ref(['こちらはtitleです。']);
 // const taskcardinput = ref(['こちらはtitleです。','こちらはdescriptionです。','こちらはdateです。']);
 const taskcardinput = ref(['']);
 
-const showTodos = ref<string[][]>([]);
+const showTodos = ref<Taskcard[]>([]);
 
-const onSubmit = (event: string[]) => {
+const onSubmit = (event: Taskcard) => {
     showTodos.value.push(event)
 
+    // utilsのclass化する前は、以下のようだった
     // const showTodos = ref<string[][]>([]);  　→ 　[][]である理由は、以下
     // event = ['title', 'description', 'date']
     // showTodos.value = [ ['title', 'description', 'date'], ['title', 'description', 'date'], ['title', 'description', 'date'] ]
